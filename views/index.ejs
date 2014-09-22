@@ -8,14 +8,16 @@
   <div>
     <input type="TEXT" value placeholder = "Enter video url" autofocus><button>Display</button></br>
   </div>
-  <div id = 'vid_container'></div>
+  <div id = 'vid_container'> 
+  </div>
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script>
     $('button').click(function(){
-      var url = $('input').val();
+      var url = $('input').val() + '';
       if(url !== ''){
         $('#vid_container').empty();
-        $('#vid_container').append(url);
+        var video_tag = '<video width="400px" controls><source src=' + url + '><\/video>';
+        $('#vid_container').append(video_tag);
       };
     });
   </script>
