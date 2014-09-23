@@ -12,11 +12,19 @@
   </div>
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script>
+    $('input').keyup(function(e){
+      var url = $('input').val() + '';
+      if(e.keyCode == '13' && url !==''){
+        $('#vid_container').empty();
+        var video_tag = '<video width="100%" height ="100%" controls autoplay><source src=' + url + '><\/video>';
+        $('#vid_container').append(video_tag);
+      };
+    });
     $('button').click(function(){
       var url = $('input').val() + '';
       if(url !== ''){
         $('#vid_container').empty();
-        var video_tag = '<video width="400px" controls><source src=' + url + '><\/video>';
+        var video_tag = '<video width="100%" height ="100%" controls autoplay><source src=' + url + '><\/video>';
         $('#vid_container').append(video_tag);
       };
     });
