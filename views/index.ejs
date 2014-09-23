@@ -4,36 +4,56 @@
   <meta charset="UTF-8">
   <title></title>
   <style>
-    #vid_container{
-      height: 100%;
+    body{
+      background-color: black;
     }
     video{
-      positon: fixed;
+      position: fixed;
       margin: 0, 0, 0, 0;
+    }
+    #url_input_container{
+      padding: 20%;
+    }
+    input{
+      text-align: center;
+      font-size: 23px;
+      width: 70%;
+      height: 40px;
+    }
+    #display{
+      border-radius: 5px;
+      font-size: 23px;
+      text-align: center;
+      width: 20%;
+      height: 40px;
     }
   </style>
 </head>
 <body>
-  <div>
-    <input type="TEXT" value placeholder = "Enter video url" autofocus><button>Display</button></br>
-  </div>
   <div id = 'vid_container'></div>
+  <div id = 'url_input_container'>
+    <input type="TEXT" value placeholder = "Enter video url" autofocus>
+    <button id='display'>Display</button>
+  </div>
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script>
+    var add_vid_tag = function(url) {
+      $('div').empty();
+      var video_tag = '<video width="100%" height ="100%" controls autoplay><source src=' + url + '><\/video>';
+//      $('#url_input_container').append('<button class="home">home<\/button>');
+//      $('.home').on('click', function(){console.log('home');window.location = '/';});
+      $('#vid_container').append(video_tag);
+      };
     $('input').keyup(function(e){
       var url = $('input').val() + '';
       if(e.keyCode == '13' && url !==''){
-        $('#vid_container').empty();
-        var video_tag = '<video width="100%" height ="100%" controls autoplay><source src=' + url + '><\/video>';
-        $('#vid_container').append(video_tag);
+        add_vid_tag(url);
       };
     });
-    $('button').click(function(){
+    $('#display').click(function(){
       var url = $('input').val() + '';
       if(url !== ''){
-        $('#vid_container').empty();
-        var video_tag = '<video width="100%" height ="100%" controls autoplay><source src=' + url + '><\/video>';
-        $('#vid_container').append(video_tag);
+        add_vid_tag(url);
       };
     });
   </script>
