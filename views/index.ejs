@@ -3,13 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <title></title>
+  <style>
+    #vid_container{
+      height: 100%;
+    }
+    video{
+      positon: fixed;
+      margin: 0, 0, 0, 0;
+    }
+  </style>
 </head>
 <body>
   <div>
     <input type="TEXT" value placeholder = "Enter video url" autofocus><button>Display</button></br>
   </div>
-  <div id = 'vid_container'> 
-  </div>
+  <div id = 'vid_container'></div>
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script>
     $('input').keyup(function(e){
